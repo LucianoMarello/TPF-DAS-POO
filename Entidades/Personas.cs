@@ -1,10 +1,17 @@
-﻿namespace Entidades
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Entidades
 {
     public abstract class Persona
     {
+        [Key] 
         public int PersonaId { get; set; }
+        [Required]
+        [MaxLength(100)]
         public string Nombre { get; set; }
+        [MaxLength(20)]
         public string Telefono { get; set; }
+        [MaxLength(200)]
         public string Direccion { get; set; }
     }
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +10,10 @@ namespace Entidades
 {
     public abstract class Movimientos
     {
+        [Key]
         public int MovimientoId { get; set; }
         public DateTime FechaMovimiento { get; set; } = DateTime.Now;
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Total { get; set; }
         public int SucursalId { get; set; }
         public virtual Sucursal Sucursal { get; set; }
@@ -17,6 +21,7 @@ namespace Entidades
 
     public class Ingreso : Movimientos
     {
+
         public int ProveedorId { get; set; }
         public virtual Proveedor Proveedor { get; set; }
         public virtual ICollection<DetalleIngreso> Detalles { get; set; }
