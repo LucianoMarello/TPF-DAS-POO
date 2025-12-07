@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Modelo.Repositorios
 {
-    public class RepositorioRubros
+    public class RepositorioRubro
     {
         private readonly Context _context;
 
-        public RepositorioRubros(Context context)
+        public RepositorioRubro(Context context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace Modelo.Repositorios
             return _context.Rubros.ToList();
         }
 
-        public Rubro ObtenerPorId(int id)
+        public Rubro? ObtenerPorId(int id)
         {
            
             return _context.Rubros.Find(id);

@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Modelo.Repositorios
 {
-    public class RepositorioProductos
+    public class RepositorioProducto
     {
         private readonly Context _context;
 
-        public RepositorioProductos(Context context)
+        public RepositorioProducto(Context context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace Modelo.Repositorios
             return _context.Productos.Include(p => p.Rubro).ToList();
         }
 
-        public Producto ObtenerPorId(int id)
+        public Producto? ObtenerPorId(int id)
         {
             return _context.Productos.Find(id);
         }

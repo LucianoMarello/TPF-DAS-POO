@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Modelo.Repositorios
 {
-    public class RepositorioSucursales
+    public class RepositorioSucursal
     {
         private readonly Context _context;
 
-        public RepositorioSucursales(Context context)
+        public RepositorioSucursal(Context context)
         {
             _context = context;
         }
@@ -22,7 +22,7 @@ namespace Modelo.Repositorios
             return _context.Sucursales.ToList();
         }
 
-        public Sucursal ObtenerPorId(int id)
+        public Sucursal? ObtenerPorId(int id)
         {
             return _context.Sucursales.Find(id);
         }

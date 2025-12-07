@@ -32,7 +32,7 @@ namespace Modelo.Repositorios
                            .ToList();
         }
 
-        public Venta ObtenerPorId(int id)
+        public Venta? ObtenerPorId(int id)
         {
             return _context.Ventas
                            .Include(v => v.Cliente)

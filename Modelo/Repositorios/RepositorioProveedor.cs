@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Modelo.Repositorios
             return _context.Proveedores.ToList();
         }
 
-        public Proveedor ObtenerPorId(int id)
+        public Proveedor? ObtenerPorId(int id)
         {
             return _context.Proveedores.Find(id);
         }
@@ -34,7 +35,7 @@ namespace Modelo.Repositorios
 
         public void Modificar(Proveedor proveedor)
         {
-            _context.Update(proveedor);
+            _context.Entry(proveedor).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

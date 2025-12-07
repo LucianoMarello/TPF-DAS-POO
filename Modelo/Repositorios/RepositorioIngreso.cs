@@ -32,7 +32,7 @@ namespace Modelo.Repositorios
                            .ToList();
         }
 
-        public Ingreso ObtenerPorId(int id)
+        public Ingreso? ObtenerPorId(int id)
         {
             return _context.Ingresos
                            .Include(i => i.Proveedor)
