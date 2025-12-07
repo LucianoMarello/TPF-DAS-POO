@@ -62,7 +62,17 @@ namespace Modelo.Repositorios
                 .ToList();
         }
 
-        public int ObtenerStockTotal(int productoId, int sucursalId)
+        public int ObtenerStockTotal(int productoId)
+        {
+            DateTime hoy = DateTime.Now;
+            return _context.Lotes
+                .Where(l => l.ProductoId == productoId
+                && l.CantidadActual > 0
+                && l.FechaVencimiento > hoy)
+                .Sum(l => l.CantidadActual);
+        }
+
+        public int ObtenerStockTotalPorSucursal(int productoId, int sucursalId)
         {
             DateTime hoy = DateTime.Now;
             return _context.Lotes

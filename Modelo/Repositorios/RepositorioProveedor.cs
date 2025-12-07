@@ -38,15 +38,5 @@ namespace Modelo.Repositorios
             _context.Entry(proveedor).State = EntityState.Modified;
             _context.SaveChanges();
         }
-
-        public void Eliminar(int id)
-        {
-            var p = _context.Proveedores.Find(id);
-            if (p != null)
-            {
-                _context.Proveedores.Remove(p);
-                _context.SaveChanges();
-            }
-        }
     }
 }

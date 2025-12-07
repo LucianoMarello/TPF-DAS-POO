@@ -14,7 +14,7 @@ namespace Entidades
         public int LoteId { get; set; }
         public int CantidadActual { get; set; }
         public DateTime FechaVencimiento { get; set; }
-        public DateTime FechaIngreso { get; set; } = DateTime.Now;
+        public DateTime FechaIngreso { get; set; }
         public int ProductoId { get; set; }
         public virtual Producto Producto { get; set; }
         public int SucursalId { get; set; }

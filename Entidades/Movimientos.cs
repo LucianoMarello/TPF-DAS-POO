@@ -12,7 +12,7 @@ namespace Entidades
     {
         [Key]
         public int MovimientoId { get; set; }
-        public DateTime FechaMovimiento { get; set; } = DateTime.Now;
+        public DateTime FechaMovimiento { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Total { get; set; }
         public int SucursalId { get; set; }

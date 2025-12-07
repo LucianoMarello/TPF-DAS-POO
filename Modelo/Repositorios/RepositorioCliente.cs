@@ -38,15 +38,5 @@ namespace Modelo.Repositorios
             _context.Entry(cliente).State = EntityState.Modified;
             _context.SaveChanges();
         }
-
-        public void Eliminar(int id)
-        {
-            var c = _context.Clientes.Find(id);
-            if (c != null)
-            {
-                _context.Clientes.Remove(c);
-                _context.SaveChanges();
-            }
-        }
     }
 }
