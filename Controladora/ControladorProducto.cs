@@ -75,11 +75,19 @@ namespace Controladora
 
         public List<Producto> ObtenerProductosBajoStock()
         {
-            // Filtra en memoria los que tienen stock total menor al mínimo
             var productos = _repoProducto.ObtenerTodos();
             return productos.Where(p =>
-                _repoLote.ObtenerStockTotalPorSucursal(p.ProductoId, 1) <= p.StockMinimoAlerta
+                _repoLote.ObtenerStockTotal(p.ProductoId) <= p.StockMinimoAlerta
             ).ToList();
+        }
+
+        public void RegistrarVencimiento(int loteId)
+        {
+            var lote = _repoLote.ObtenerPorId(loteId);
+            if (lote == null) throw new Exception("Lote no encontrado.");
+
+            lote.CantidadActual = 0;
+            _repoLote.Modificar(lote);
         }
 
         //RUBROS

@@ -82,8 +82,7 @@ namespace Controladora
                     int tomar = Math.Min(porDescontar, lote.CantidadActual);
 
                     lote.CantidadActual -= tomar;
-                    if (lote.CantidadActual == 0) _repoLote.Eliminar(lote.LoteId);
-                    else _repoLote.Modificar(lote);
+                    _repoLote.Modificar(lote);
 
                     porDescontar -= tomar;
                 }
