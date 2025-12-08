@@ -13,42 +13,33 @@ using System.Windows.Forms;
 
 namespace Vista.FormsGestion
 {
-    public partial class FormClientes : Form
+    public partial class FormProveedores : Form
     {
-        public FormClientes()
+        public FormProveedores()
         {
             InitializeComponent();
         }
 
-        private void FormClientes_Load(object sender, EventArgs e)
+        private void FormProveedores_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
-            CargarComboTiposClientes();
         }
 
         private void ActualizarGrilla()
         {
-            dgvClientes.DataSource = null;
-            dgvClientes.DataSource = ControladorPersonas.Instancia.ObtenerClientes();
+            dgvProveedores.DataSource = null;
+            dgvProveedores.DataSource = ControladorPersonas.Instancia.ObtenerProveedores();
 
-            if (dgvClientes.Columns["HistorialVentas"] != null)
-                dgvClientes.Columns["HistorialVentas"].Visible = false;
-        }
-
-        private void CargarComboTiposClientes()
-        {
-            cmbTipoCliente.DataSource = null;
-            cmbTipoCliente.DataSource = Enum.GetValues(typeof(TipoCliente));
-
+            if (dgvProveedores.Columns["IngresosRealizados"] != null)
+                dgvProveedores.Columns["IngresosRealizados"].Visible = false;
         }
 
         private void LimpiarCampos()
         {
-            dgvClientes.ClearSelection();
+            dgvProveedores.ClearSelection();
             txtNombre.Text = "";
             txtTelefono.Text = "";
             txtDireccion.Text = "";
-            if (cmbTipoCliente.Items.Count > 0) cmbTipoCliente.SelectedIndex = 0;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -70,11 +61,10 @@ namespace Vista.FormsGestion
                 string nombre = txtNombre.Text;
                 string direccion = txtDireccion.Text;
                 string telefono = txtTelefono.Text;
-                TipoCliente tipo = (TipoCliente)cmbTipoCliente.SelectedItem;
 
-                ControladorPersonas.Instancia.AgregarCliente(nombre, telefono, direccion, tipo);
+                ControladorPersonas.Instancia.AgregarProveedor(nombre, telefono, direccion);
 
-                MessageBox.Show("Cliente registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Proveedor registrado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarCampos();
                 ActualizarGrilla();
             }
@@ -83,12 +73,12 @@ namespace Vista.FormsGestion
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvClientes.SelectedRows.Count == 0)
+            if (dgvProveedores.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Seleccione el cliente que desea modificar desde la grilla.");
+                MessageBox.Show("Seleccione el proveedor que desea modificar desde la grilla.");
                 return;
             }
 
@@ -100,26 +90,24 @@ namespace Vista.FormsGestion
 
             try
             {
-                var clienteOriginal = (Cliente)dgvClientes.SelectedRows[0].DataBoundItem;
-                int idParaModificar = clienteOriginal.PersonaId;
+                var proveedorOriginal = (Proveedor)dgvProveedores.SelectedRows[0].DataBoundItem;
+                int idParaModificar = proveedorOriginal.PersonaId;
 
                 string nombre = txtNombre.Text;
                 string direccion = txtDireccion.Text;
                 string telefono = txtTelefono.Text;
-                TipoCliente tipo = (TipoCliente)cmbTipoCliente.SelectedItem;
 
-                var clienteModificado = new Cliente
+                var proveedorModificado = new Proveedor
                 {
                     PersonaId = idParaModificar,
                     Nombre = nombre,
                     Telefono = telefono,
                     Direccion = direccion,
-                    Tipo = tipo
                 };
 
-                ControladorPersonas.Instancia.ModificarCliente(clienteModificado);
+                ControladorPersonas.Instancia.ModificarProveedor(proveedorModificado);
 
-                MessageBox.Show("Cliente modificado correctamente.");
+                MessageBox.Show("Proveedor modificado correctamente.");
                 LimpiarCampos();
                 ActualizarGrilla();
             }
@@ -129,22 +117,21 @@ namespace Vista.FormsGestion
             }
         }
 
-        private void btnLimpiar_Click_1(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         private void btnCopiar_Click(object sender, EventArgs e)
         {
-            if (dgvClientes.SelectedRows.Count > 0)
+            if (dgvProveedores.SelectedRows.Count > 0)
             {
-                var cliente = (Cliente)dgvClientes.SelectedRows[0].DataBoundItem;
+                var proveedor = (Proveedor)dgvProveedores.SelectedRows[0].DataBoundItem;
 
-                txtNombre.Text = cliente.Nombre;
-                txtTelefono.Text = cliente.Telefono;
-                txtDireccion.Text = cliente.Direccion;
+                txtNombre.Text = proveedor.Nombre;
+                txtTelefono.Text = proveedor.Telefono;
+                txtDireccion.Text = proveedor.Direccion;
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
     }
 }

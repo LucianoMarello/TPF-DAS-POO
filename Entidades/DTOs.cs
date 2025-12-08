@@ -19,4 +19,12 @@ namespace Entidades
         public decimal Costo { get; set; }
         public DateTime FechaVencimiento { get; set; }
     }
+
+    public class ProductoStockDTO
+    {
+        public int ProductoId { get; set; }
+        public string Nombre { get; set; }
+        public decimal Precio { get; set; }
+        public int StockTotal { get; set; }
+    }
 }

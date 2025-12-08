@@ -40,6 +40,16 @@ namespace Vista
             AbrirFormulario<FormClientes>();
         }
 
+        private void menuProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormProveedores>();
+        }
+
+        private void menuSucursales_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormSucursales>();
+        }
+
         private void menuSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();

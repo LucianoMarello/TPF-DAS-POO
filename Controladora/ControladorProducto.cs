@@ -125,5 +125,21 @@ namespace Controladora
             return _repoLote.ObtenerProximosAVencer();
         }
 
+        public List<ProductoStockDTO> ConsultarStockPorSucursal(int sucursalId)
+        {
+            var productos = _repoProducto.ObtenerTodos();
+
+            var resultados = productos.Select(p => new ProductoStockDTO
+            {
+                ProductoId = p.ProductoId,
+                Nombre = p.Nombre,
+                Precio = p.Precio,
+                StockTotal = _repoLote.ObtenerStockTotalPorSucursal(p.ProductoId, sucursalId)
+            })
+            .Where(dto => dto.StockTotal > 0)
+            .ToList();
+
+            return resultados;
+        }
     }
 }

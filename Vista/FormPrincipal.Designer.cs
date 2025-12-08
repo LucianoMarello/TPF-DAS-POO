@@ -90,12 +90,14 @@
             menuProveedores.Name = "menuProveedores";
             menuProveedores.Size = new Size(224, 26);
             menuProveedores.Text = "Proveedores";
+            menuProveedores.Click += menuProveedores_Click;
             // 
             // menuSucursales
             // 
             menuSucursales.Name = "menuSucursales";
             menuSucursales.Size = new Size(224, 26);
             menuSucursales.Text = "Sucursales";
+            menuSucursales.Click += menuSucursales_Click;
             // 
             // menuOperaciones
             // 

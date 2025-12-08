@@ -35,10 +35,28 @@ namespace Controladora
             _repoSucursal = new RepositorioSucursal(_context);
         }
 
-        //SUCURSAL  DUDOSO
+        //SUCURSAL
         public List<Sucursal> ObtenerSucursales() => _repoSucursal.ObtenerTodos();
         public Sucursal? ObtenerSucursalPorId(int id) => _repoSucursal.ObtenerPorId(id);
 
+        public void AgregarSucursal(string nombre, string direccion)
+        {
+            if (string.IsNullOrWhiteSpace(nombre)) throw new Exception("El nombre de la sucursal es obligatorio.");
+            if (string.IsNullOrWhiteSpace(direccion)) throw new Exception("La dirección es obligatoria.");
+
+            var sucursal = new Sucursal
+            {
+                Nombre = nombre,
+                Direccion = direccion
+            };
+
+            _repoSucursal.Agregar(sucursal);
+        }
+
+        public void ModificarSucursal(Sucursal sucursal)
+        {
+            _repoSucursal.Modificar(sucursal);
+        }
 
         //VENTA
         public void CrearVenta(int clienteId, int sucursalId, MetodoPago metodoPago, List<ItemVentaDTO> items)

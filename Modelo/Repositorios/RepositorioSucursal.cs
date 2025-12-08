@@ -26,5 +26,20 @@ namespace Modelo.Repositorios
         {
             return _context.Sucursales.Find(id);
         }
+
+        public void Agregar(Sucursal s)
+        {
+            _context.Sucursales.Add(s);
+            _context.SaveChanges();
+        }
+
+        public void Modificar(Sucursal s)
+        {
+            var local = _context.Sucursales.Local.FirstOrDefault(x => x.SucursalId == s.SucursalId);
+            if (local != null) _context.Entry(local).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+
+            _context.Entry(s).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+        }
     }
 }
