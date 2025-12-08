@@ -33,9 +33,14 @@ namespace Modelo.Repositorios
             _context.SaveChanges();
         }
 
-        public void Modificar(Lote l)
+        public void Modificar(Lote lote)
         {
-            _context.Entry(l).State = EntityState.Modified;
+            var local = _context.Lotes.Local.FirstOrDefault(l => l.LoteId == lote.LoteId);
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
+            _context.Entry(lote).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

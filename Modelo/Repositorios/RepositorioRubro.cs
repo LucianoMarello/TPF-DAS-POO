@@ -35,6 +35,11 @@ namespace Modelo.Repositorios
 
         public void Modificar(Rubro rubro)
         {
+            var local = _context.Rubros.Local.FirstOrDefault(r => r.RubroId== rubro.RubroId);
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             _context.Entry(rubro).State = EntityState.Modified;
             _context.SaveChanges();
         }

@@ -35,6 +35,11 @@ namespace Modelo.Repositorios
 
         public void Modificar(Proveedor proveedor)
         {
+            var local = _context.Proveedores.Local.FirstOrDefault(p => p.PersonaId == proveedor.PersonaId);
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             _context.Entry(proveedor).State = EntityState.Modified;
             _context.SaveChanges();
         }

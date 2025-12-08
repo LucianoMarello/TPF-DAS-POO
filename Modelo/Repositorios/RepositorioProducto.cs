@@ -36,6 +36,11 @@ namespace Modelo.Repositorios
 
         public void Modificar(Producto producto)
         {
+            var local = _context.Productos.Local.FirstOrDefault(p => p.ProductoId == producto.ProductoId);
+            if (local != null)
+            {
+                _context.Entry(local).State = EntityState.Detached;
+            }
             _context.Entry(producto).State = EntityState.Modified;
             _context.SaveChanges();
         }
