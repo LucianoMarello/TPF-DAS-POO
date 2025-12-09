@@ -154,5 +154,30 @@ namespace Vista.FormsHistorialAlertas
             if (dgvDetalles.Columns["PrecioUnitario"] != null) dgvDetalles.Columns["PrecioUnitario"].DefaultCellStyle.Format = "C2";
             if (dgvDetalles.Columns["Subtotal"] != null) dgvDetalles.Columns["Subtotal"].DefaultCellStyle.Format = "C2";
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (dgvVentas.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione una venta.");
+                return;
+            }
+
+            try
+            {
+                var ventaSeleccionada = (Venta)dgvVentas.SelectedRows[0].Cells["ObjetoReal"].Value;
+                GeneradorFactura.GenerarTicket(ventaSeleccionada);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar ticket: " + ex.Message);
+            }
+        }
+
+        private void btnMasVendidos_Click(object sender, EventArgs e)
+        {
+            string reporte = ControladorVenta.Instancia.ObtenerRankingMasVendidos();
+            MessageBox.Show(reporte, "Ranking de Ventas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

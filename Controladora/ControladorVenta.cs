@@ -127,5 +127,36 @@ namespace Controladora
         public List<Venta> ObtenerHistorialVentas() => _repoVenta.ObtenerHistorial();
 
         public Venta? ObtenerVentaPorId(int id) => _repoVenta.ObtenerPorId(id);
+
+        public string ObtenerRankingMasVendidos()
+        {
+            var ventas = _repoVenta.ObtenerHistorial();
+            var ranking = ventas
+                .SelectMany(v => v.Detalles)
+                .GroupBy(d => d.Producto.Nombre) 
+                .Select(grupo => new
+                {
+                    Nombre = grupo.Key,
+                    Total = grupo.Sum(d => d.Cantidad)
+                })
+                .OrderByDescending(x => x.Total)
+                .Take(5) 
+                .ToList();
+
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.AppendLine(" TOP 5 PRODUCTOS MÁS VENDIDOS ");
+            sb.AppendLine("  ");
+
+            int puesto = 1;
+            foreach (var item in ranking)
+            {
+                sb.AppendLine($"#{puesto} - {item.Nombre}: {item.Total} unidades");
+                puesto++;
+            }
+
+            if (ranking.Count == 0) return "No hay ventas registradas aún.";
+
+            return sb.ToString();
+        }
     }
 }

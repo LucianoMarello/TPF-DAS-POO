@@ -45,6 +45,8 @@
             btnFiltrar = new Button();
             dtpFin = new DateTimePicker();
             dtpInicio = new DateTimePicker();
+            btnImprimir = new Button();
+            btnMasVendidos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDetalles).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvVentas).BeginInit();
             gbFiltros.SuspendLayout();
@@ -111,7 +113,7 @@
             gbFiltros.Controls.Add(dtpInicio);
             gbFiltros.Location = new Point(12, 12);
             gbFiltros.Name = "gbFiltros";
-            gbFiltros.Size = new Size(322, 657);
+            gbFiltros.Size = new Size(322, 518);
             gbFiltros.TabIndex = 18;
             gbFiltros.TabStop = false;
             gbFiltros.Text = "Filtros de Búsqueda";
@@ -219,11 +221,33 @@
             dtpInicio.Size = new Size(269, 27);
             dtpInicio.TabIndex = 0;
             // 
+            // btnImprimir
+            // 
+            btnImprimir.Location = new Point(186, 579);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(135, 59);
+            btnImprimir.TabIndex = 12;
+            btnImprimir.Text = "Generar Factura";
+            btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click;
+            // 
+            // btnMasVendidos
+            // 
+            btnMasVendidos.Location = new Point(25, 579);
+            btnMasVendidos.Name = "btnMasVendidos";
+            btnMasVendidos.Size = new Size(135, 59);
+            btnMasVendidos.TabIndex = 23;
+            btnMasVendidos.Text = "Ver Más Vendidos";
+            btnMasVendidos.UseVisualStyleBackColor = true;
+            btnMasVendidos.Click += btnMasVendidos_Click;
+            // 
             // FormHistorialVentas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1020, 705);
+            Controls.Add(btnMasVendidos);
+            Controls.Add(btnImprimir);
             Controls.Add(lblDetalleVenta);
             Controls.Add(lblVentas);
             Controls.Add(dgvDetalles);
@@ -260,5 +284,7 @@
         private DateTimePicker dtpInicio;
         private Label lblCliente;
         private ComboBox cmbFiltroCliente;
+        private Button btnImprimir;
+        private Button btnMasVendidos;
     }
 }
