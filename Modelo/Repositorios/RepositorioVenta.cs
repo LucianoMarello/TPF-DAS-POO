@@ -28,6 +28,8 @@ namespace Modelo.Repositorios
             return _context.Ventas
                            .Include(v => v.Cliente)
                            .Include(v => v.Sucursal)
+                           .Include(v => v.Detalles)
+                           .ThenInclude(d => d.Producto)
                            .OrderByDescending(v => v.FechaMovimiento)
                            .ToList();
         }

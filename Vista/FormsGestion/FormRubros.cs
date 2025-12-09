@@ -28,6 +28,8 @@ namespace Vista.FormsGestion
         {
             dgvRubros.DataSource = null;
             dgvRubros.DataSource = ControladorProducto.Instancia.ObtenerRubros();
+
+            if (dgvRubros.Columns["Productos"] != null) dgvRubros.Columns["Productos"].Visible = false;
         }
 
         private void LimpiarCampos()

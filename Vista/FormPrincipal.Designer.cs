@@ -42,7 +42,6 @@
             menuReportes = new ToolStripMenuItem();
             menuHistorialVentas = new ToolStripMenuItem();
             menuHistorialCompras = new ToolStripMenuItem();
-            menuIntegrantes = new ToolStripMenuItem();
             menuSalir = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             SuspendLayout();
@@ -50,7 +49,7 @@
             // menuStrip
             // 
             menuStrip.ImageScalingSize = new Size(20, 20);
-            menuStrip.Items.AddRange(new ToolStripItem[] { menuGestion, menuOperaciones, menuReportes, menuIntegrantes, menuSalir });
+            menuStrip.Items.AddRange(new ToolStripItem[] { menuGestion, menuOperaciones, menuReportes, menuSalir });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new Size(800, 28);
@@ -125,6 +124,7 @@
             menuAlertas.Name = "menuAlertas";
             menuAlertas.Size = new Size(311, 26);
             menuAlertas.Text = "Alertas de Stock/Vencimiento";
+            menuAlertas.Click += menuAlertas_Click;
             // 
             // menuReportes
             // 
@@ -138,18 +138,14 @@
             menuHistorialVentas.Name = "menuHistorialVentas";
             menuHistorialVentas.Size = new Size(232, 26);
             menuHistorialVentas.Text = "Historial de Ventas";
+            menuHistorialVentas.Click += menuHistorialVentas_Click;
             // 
             // menuHistorialCompras
             // 
             menuHistorialCompras.Name = "menuHistorialCompras";
             menuHistorialCompras.Size = new Size(232, 26);
             menuHistorialCompras.Text = "Historial de Compras";
-            // 
-            // menuIntegrantes
-            // 
-            menuIntegrantes.Name = "menuIntegrantes";
-            menuIntegrantes.Size = new Size(97, 24);
-            menuIntegrantes.Text = "Integrantes";
+            menuHistorialCompras.Click += menuHistorialCompras_Click;
             // 
             // menuSalir
             // 
@@ -189,7 +185,6 @@
         private ToolStripMenuItem menuVenta;
         private ToolStripMenuItem menuCompra;
         private ToolStripMenuItem menuReportes;
-        private ToolStripMenuItem menuIntegrantes;
         private ToolStripMenuItem menuSalir;
         private ToolStripMenuItem menuAlertas;
         private ToolStripMenuItem menuHistorialVentas;

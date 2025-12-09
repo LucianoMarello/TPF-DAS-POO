@@ -1,4 +1,5 @@
 using Vista.FormsGestion;
+using Vista.FormsHistorialAlertas;
 using Vista.FormsOperaciones;
 
 namespace Vista
@@ -64,6 +65,21 @@ namespace Vista
         private void menuCompra_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FormCompras>();
+        }
+
+        private void menuAlertas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormAlertas>();
+        }
+
+        private void menuHistorialVentas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormHistorialVentas>();
+        }
+
+        private void menuHistorialCompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormHistorialCompras>();
         }
     }
 }
