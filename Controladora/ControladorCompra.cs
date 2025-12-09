@@ -22,6 +22,7 @@ namespace Controladora
         private RepositorioIngreso _repoIngreso;
         private RepositorioLote _repoLote;
         private RepositorioProveedor _repoProveedor;
+        private RepositorioProducto _repoProducto;
 
         private ControladorCompra()
         {
@@ -29,17 +30,16 @@ namespace Controladora
             _repoIngreso = new RepositorioIngreso(_context);
             _repoLote = new RepositorioLote(_context);
             _repoProveedor = new RepositorioProveedor(_context);
+            _repoProducto = new RepositorioProducto(_context);
         }
 
         public void RegistrarCompra(int proveedorId, int sucursalId, List<ItemCompraDTO> items)
         {
             if (items == null || items.Count == 0) throw new Exception("Lista de compra vacía.");
 
-            // Validar Proveedor
             var proveedor = _repoProveedor.ObtenerPorId(proveedorId);
             if (proveedor == null) throw new Exception("Proveedor no encontrado.");
 
-            // 1. Crear Cabecera
             var ingreso = new Ingreso
             {
                 ProveedorId = proveedorId,
@@ -51,10 +51,8 @@ namespace Controladora
 
             decimal totalCompra = 0;
 
-            // 2. Procesar Items (Crear Histórico + Crear Lote Nuevo)
             foreach (var item in items)
             {
-                // A. Detalle Histórico (Inmutable)
                 var detalle = new DetalleIngreso
                 {
                     ProductoId = item.ProductoId,
@@ -64,7 +62,6 @@ namespace Controladora
                 ingreso.Detalles.Add(detalle);
                 totalCompra += (item.Cantidad * item.Costo);
 
-                // B. Crear LOTE (Stock Vivo)
                 var nuevoLote = new Lote
                 {
                     ProductoId = item.ProductoId,
@@ -73,14 +70,22 @@ namespace Controladora
                     FechaIngreso = DateTime.Now,
                     FechaVencimiento = item.FechaVencimiento
                 };
-
-                // Guardamos el lote. Al ser parte del mismo contexto, se guarda todo junto al final
                 _repoLote.Agregar(nuevoLote);
+
+                var producto = _repoProducto.ObtenerPorId(item.ProductoId);
+
+                if (producto != null)
+                {
+                    producto.Precio = item.Costo * 1.5m;
+
+
+                    _repoProducto.Modificar(producto);
+                }
             }
 
             ingreso.Total = totalCompra;
 
-            // 3. Guardar Todo
+            // Guardar Todo el Ingreso
             _repoIngreso.Agregar(ingreso);
         }
 

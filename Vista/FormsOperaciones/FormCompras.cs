@@ -24,7 +24,7 @@ namespace Vista.FormsOperaciones
 
         private void FormCompras_Load(object sender, EventArgs e)
         {
-            lblFechaIngreso.Text = DateTime.Now.ToShortDateString();
+            lblFechaIngreso.Text = $"Fecha: {DateTime.Now.ToShortDateString()}";
             CargarCombos();
             gbDatosProducto.Enabled = false;
             btnComprar.Enabled = false;

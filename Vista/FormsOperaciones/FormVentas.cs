@@ -25,6 +25,7 @@ namespace Vista.FormsOperaciones
 
         private void FormVentas_Load(object sender, EventArgs e)
         {
+            lblFechaVenta.Text = $"Fecha: {DateTime.Now.ToShortDateString()}";
             CargarCombos();
             gbDatosProducto.Enabled = false;
             btnConfirmar.Enabled = false;
