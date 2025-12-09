@@ -1,4 +1,5 @@
 using Vista.FormsGestion;
+using Vista.FormsOperaciones;
 
 namespace Vista
 {
@@ -23,6 +24,11 @@ namespace Vista
             Form formulario = new T();
             formulario.MdiParent = this;
             formulario.Show();
+        }
+
+        private void menuSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void menuProductos_Click(object sender, EventArgs e)
@@ -50,9 +56,14 @@ namespace Vista
             AbrirFormulario<FormSucursales>();
         }
 
-        private void menuSalir_Click(object sender, EventArgs e)
+        private void menuVenta_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            AbrirFormulario<FormVentas>();
+        }
+
+        private void menuCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario<FormCompras>();
         }
     }
 }

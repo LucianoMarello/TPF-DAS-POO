@@ -191,7 +191,7 @@
             Controls.Add(dgvStock);
             Controls.Add(gbDatosSucursal);
             Name = "FormSucursales";
-            Text = "a";
+            Text = "Sucursales";
             WindowState = FormWindowState.Maximized;
             Load += FormSucursales_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStock).EndInit();

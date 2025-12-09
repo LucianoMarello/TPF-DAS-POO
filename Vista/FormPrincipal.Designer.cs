@@ -67,35 +67,35 @@
             // menuProductos
             // 
             menuProductos.Name = "menuProductos";
-            menuProductos.Size = new Size(224, 26);
+            menuProductos.Size = new Size(174, 26);
             menuProductos.Text = "Productos";
             menuProductos.Click += menuProductos_Click;
             // 
             // menuRubros
             // 
             menuRubros.Name = "menuRubros";
-            menuRubros.Size = new Size(224, 26);
+            menuRubros.Size = new Size(174, 26);
             menuRubros.Text = "Rubros";
             menuRubros.Click += menuRubros_Click;
             // 
             // menuClientes
             // 
             menuClientes.Name = "menuClientes";
-            menuClientes.Size = new Size(224, 26);
+            menuClientes.Size = new Size(174, 26);
             menuClientes.Text = "Clientes";
             menuClientes.Click += menuClientes_Click;
             // 
             // menuProveedores
             // 
             menuProveedores.Name = "menuProveedores";
-            menuProveedores.Size = new Size(224, 26);
+            menuProveedores.Size = new Size(174, 26);
             menuProveedores.Text = "Proveedores";
             menuProveedores.Click += menuProveedores_Click;
             // 
             // menuSucursales
             // 
             menuSucursales.Name = "menuSucursales";
-            menuSucursales.Size = new Size(224, 26);
+            menuSucursales.Size = new Size(174, 26);
             menuSucursales.Text = "Sucursales";
             menuSucursales.Click += menuSucursales_Click;
             // 
@@ -111,12 +111,14 @@
             menuVenta.Name = "menuVenta";
             menuVenta.Size = new Size(311, 26);
             menuVenta.Text = "Nueva Venta";
+            menuVenta.Click += menuVenta_Click;
             // 
             // menuCompra
             // 
             menuCompra.Name = "menuCompra";
             menuCompra.Size = new Size(311, 26);
             menuCompra.Text = "Registrar Compra (Ingreso Stock)";
+            menuCompra.Click += menuCompra_Click;
             // 
             // menuAlertas
             // 
