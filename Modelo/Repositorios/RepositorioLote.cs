@@ -72,8 +72,7 @@ namespace Modelo.Repositorios
             DateTime hoy = DateTime.Now;
             return _context.Lotes
                 .Where(l => l.ProductoId == productoId
-                && l.CantidadActual > 0
-                && l.FechaVencimiento > hoy)
+                && l.CantidadActual > 0)
                 .Sum(l => l.CantidadActual);
         }
 
@@ -83,8 +82,7 @@ namespace Modelo.Repositorios
             return _context.Lotes
                 .Where(l => l.ProductoId == productoId
                 && l.SucursalId == sucursalId
-                && l.CantidadActual > 0
-                && l.FechaVencimiento > hoy)
+                && l.CantidadActual > 0)
                 .Sum(l => l.CantidadActual);
         }
 
@@ -97,7 +95,6 @@ namespace Modelo.Repositorios
                 .Include(l => l.Producto)
                 .Include(l => l.Sucursal)
                 .Where(l => l.CantidadActual > 0
-                && l.FechaVencimiento > hoy
                 && l.FechaVencimiento <= limite)
                 .OrderBy(l => l.FechaVencimiento)
                 .ToList();
