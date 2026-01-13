@@ -37,10 +37,10 @@ Lo que hace diferente a este proyecto es su construcción bajo estándares profe
 
 ## 📸 Capturas de Pantalla
 
-| Panel Principal | Gestión de Ventas |
+| Gestión de Ventas | Sistema de Alertas |
 |:---:|:---:|
-| ![Panel Principal](./screenshots/principal.png) | ![Ventas](./screenshots/ventas.png) |
-| *(Vista del dashboard general)* | *(Interfaz de carga de ventas)* |
+| ![Ventas](./screenshots/ventas.png) | ![Alertas](./screenshots/alertas.png) |
+| *(Interfaz de facturación y control de stock)* | *(Notificaciones automáticas de stock crítico)* |
 
 ## 🔧 Instalación y Puesta en Marcha
 
@@ -57,7 +57,7 @@ Lo que hace diferente a este proyecto es su construcción bajo estándares profe
 4.  **Ejecución:**
     * Compilar y ejecutar la solución `TPF - Marello Luciano.sln`.
 
-## 👤 Luciano Marello
+## 👤 Autor
 
 **Luciano Marello**
 * **LinkedIn:** [linkedin.com/in/luciano-marello](https://www.linkedin.com/in/luciano-marello/)
