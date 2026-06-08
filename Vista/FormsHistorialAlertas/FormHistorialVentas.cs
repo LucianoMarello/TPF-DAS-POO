@@ -103,7 +103,6 @@ namespace Vista.FormsHistorialAlertas
             dgvVentas.DataSource = listaVisual;
 
             ConfigurarGrillaMaestra();
-            dgvDetalles.DataSource = null;
         }
 
         private void ConfigurarGrillaMaestra()

@@ -80,7 +80,7 @@
             dgvDetalles.ReadOnly = true;
             dgvDetalles.RowHeadersWidth = 51;
             dgvDetalles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDetalles.Size = new Size(630, 253);
+            dgvDetalles.Size = new Size(834, 276);
             dgvDetalles.TabIndex = 21;
             // 
             // dgvVentas
@@ -93,7 +93,7 @@
             dgvVentas.ReadOnly = true;
             dgvVentas.RowHeadersWidth = 51;
             dgvVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvVentas.Size = new Size(618, 328);
+            dgvVentas.Size = new Size(834, 328);
             dgvVentas.TabIndex = 20;
             dgvVentas.SelectionChanged += dgvVentas_SelectionChanged;
             // 
@@ -189,7 +189,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(177, 426);
+            btnLimpiar.Location = new Point(169, 426);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(115, 47);
             btnLimpiar.TabIndex = 3;
@@ -199,7 +199,7 @@
             // 
             // btnFiltrar
             // 
-            btnFiltrar.Location = new Point(39, 426);
+            btnFiltrar.Location = new Point(31, 426);
             btnFiltrar.Name = "btnFiltrar";
             btnFiltrar.Size = new Size(115, 47);
             btnFiltrar.TabIndex = 2;
@@ -223,7 +223,7 @@
             // 
             // btnImprimir
             // 
-            btnImprimir.Location = new Point(186, 579);
+            btnImprimir.Location = new Point(183, 633);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(135, 59);
             btnImprimir.TabIndex = 12;
@@ -233,7 +233,7 @@
             // 
             // btnMasVendidos
             // 
-            btnMasVendidos.Location = new Point(25, 579);
+            btnMasVendidos.Location = new Point(25, 633);
             btnMasVendidos.Name = "btnMasVendidos";
             btnMasVendidos.Size = new Size(135, 59);
             btnMasVendidos.TabIndex = 23;
@@ -245,7 +245,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1020, 705);
+            ClientSize = new Size(1206, 720);
             Controls.Add(btnMasVendidos);
             Controls.Add(btnImprimir);
             Controls.Add(lblDetalleVenta);
