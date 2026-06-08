@@ -46,7 +46,7 @@ Lo que hace diferente a este proyecto es su construcción bajo estándares profe
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [https://github.com/LucianoMarello/TPF-Marello-Luciano.git](https://github.com/LucianoMarello/TPF-Marello-Luciano.git)
+    git clone [https://github.com/LucianoMarello/Sistema-Gestion-Comercial.git](https://github.com/LucianoMarello/Sistema-Gestion-Comercial.git)
     ```
 2.  **Base de Datos:**
     * El proyecto utiliza **Entity Framework Migrations**.
@@ -55,7 +55,7 @@ Lo que hace diferente a este proyecto es su construcción bajo estándares profe
 3.  **Configuración:**
     * Verificar la `ConnectionString` en el archivo `App.config` o `Context.cs` para apuntar a tu instancia local de SQL Server.
 4.  **Ejecución:**
-    * Compilar y ejecutar la solución `TPF - Marello Luciano.sln`.
+    * Compilar y ejecutar la solución `SistemaGestionComercial.sln`.
 
 ## 👤 Autor
 
